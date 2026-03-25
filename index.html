@@ -39,19 +39,36 @@
         font-family: 'DM Sans', sans-serif;
         font-size: 15px;
         color: var(--text);
-        background: var(--bg);
-      }
-      html, body, #root { height: 100%; }
-      ::-webkit-scrollbar { width: 5px; }
-      ::-webkit-scrollbar-track { background: var(--bg3); }
-      ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 4px; }
-      button { cursor: pointer; font-family: inherit; }
-      input, select, textarea { font-family: inherit; }
-      a { text-decoration: none; color: inherit; }
     </style>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 InventIQ Deployment Status</h1>
+        
+        <div class="status">
+            <h2>✅ Frontend Deployed Successfully!</h2>
+            <p><strong>URL:</strong> <a href="https://frontend-deploy-4395q58p0-yashvi-s-projects-a76b2222.vercel.app" target="_blank">https://frontend-deploy-4395q58p0-yashvi-s-projects-a76b2222.vercel.app</a></p>
+            
+            <h3>🔧 Next Steps:</h3>
+            <ol>
+                <li>Update Render CLIENT_URL to this Vercel URL</li>
+                <li>Test registration and login</li>
+                <li>Verify dashboard functionality</li>
+            </ol>
+            
+            <h3>📊 Backend Status:</h3>
+            <p><strong>API:</strong> <a href="https://inventiq-backend-4.onrender.com/api/health" target="_blank">https://inventiq-backend-4.onrender.com/api/health</a></p>
+        </div>
+        
+        <div class="status">
+            <h2>🔗 Quick Links:</h2>
+            <ul>
+                <li><a href="https://frontend-deploy-4395q58p0-yashvi-s-projects-a76b2222.vercel.app" target="_blank">🌐 Frontend App</a></li>
+                <li><a href="https://inventiq-backend-4.onrender.com/api/health" target="_blank">🔧 Backend Health</a></li>
+                <li><a href="https://render.com" target="_blank">📊 Render Dashboard</a></li>
+                <li><a href="https://vercel.com" target="_blank">⚡ Vercel Dashboard</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
 </html>
