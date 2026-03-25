@@ -16,6 +16,6 @@
     }
   ],
   "env": {
-    "VITE_API_URL": "@backend_url"
+    "VITE_API_URL": "https://inventiq-backend-4.onrender.com"
   }
 }
