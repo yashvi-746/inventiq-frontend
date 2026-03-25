@@ -1,7 +1,6 @@
 import axios from 'axios'
 
-// Hardcoded for deployment - will work immediately
-const API = 'https://inventiq-backend-4.onrender.com';
+const API = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 const api = axios.create({
   baseURL: `${API}/api`,
