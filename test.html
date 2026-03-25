@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InventIQ Test</title>
+    <style>
+        body { 
+            margin: 0; 
+            padding: 20px; 
+            font-family: Arial, sans-serif; 
+            background: #f5f5f5;
+        }
+        .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 30px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .status { 
+            padding: 15px; 
+            margin: 10px 0; 
+            border-radius: 5px;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .loading { background: #fff3cd; color: #856404; }
+        button {
+            background: #007bff; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background: #0056b3; }
+        .result {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 InventIQ Connection Test</h1>
+        
+        <div class="status">
+            <h2>🔗 Testing API Connection...</h2>
+            <div id="api-status" class="loading">Checking backend connection...</div>
+        </div>
+        
+        <div class="status">
+            <h2>🌐 Frontend Status</h2>
+            <div id="frontend-status" class="loading">Checking frontend...</div>
+        </div>
+        
+        <div>
+            <button onclick="testAPI()">Test Backend API</button>
+            <button onclick="testFrontend()">Test Frontend Loading</button>
+            <button onclick="openApp()">Open InventIQ App</button>
+        </div>
+        
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        async function testAPI() {
+            const statusDiv = document.getElementById('api-status');
+            const resultDiv = document.getElementById('result');
+            
+            try {
+                statusDiv.className = 'status loading';
+                statusDiv.innerHTML = '🔄 Testing API connection...';
+                
+                const response = await fetch('https://inventiq-backend-4.onrender.com/api/health');
+                const data = await response.json();
+                
+                if (response.ok && data.status === 'InventIQ server running') {
+                    statusDiv.className = 'status success';
+                    statusDiv.innerHTML = '✅ Backend API is working!';
+                    resultDiv.innerHTML = '<div class="result">✅ SUCCESS: Backend API is responding correctly!<br>URL: https://inventiq-backend-4.onrender.com/api/health</div>';
+                } else {
+                    throw new Error('API not responding correctly');
+                }
+            } catch (error) {
+                statusDiv.className = 'status error';
+                statusDiv.innerHTML = '❌ Backend API connection failed!';
+                resultDiv.innerHTML = '<div class="result">❌ ERROR: ' + error.message + '<br>Please check backend deployment</div>';
+            }
+        }
+        
+        function testFrontend() {
+            const statusDiv = document.getElementById('frontend-status');
+            const resultDiv = document.getElementById('result');
+            
+            try {
+                statusDiv.className = 'status loading';
+                statusDiv.innerHTML = '🔄 Testing frontend build...';
+                
+                // Test if React app would load
+                const appElement = document.getElementById('root');
+                if (appElement) {
+                    statusDiv.className = 'status success';
+                    statusDiv.innerHTML = '✅ Frontend build is working!';
+                    resultDiv.innerHTML = '<div class="result">✅ SUCCESS: Frontend is properly built!<br>React app container found</div>';
+                } else {
+                    statusDiv.className = 'status error';
+                    statusDiv.innerHTML = '❌ Frontend build failed!';
+                    resultDiv.innerHTML = '<div class="result">❌ ERROR: React app container not found!<br>Frontend may not be building correctly</div>';
+                }
+            } catch (error) {
+                statusDiv.className = 'status error';
+                statusDiv.innerHTML = '❌ Frontend test failed!';
+                resultDiv.innerHTML = '<div class="result">❌ ERROR: ' + error.message + '</div>';
+            }
+        }
+        
+        function openApp() {
+            window.open('https://frontend-deploy-mvdraas5s-yashvi-s-projects-a76b2222.vercel.app', '_blank');
+        }
+        
+        // Auto-test on load
+        window.onload = function() {
+            setTimeout(() => {
+                testAPI();
+                testFrontend();
+            }, 1000);
+        };
+    </script>
+</body>
+</html>

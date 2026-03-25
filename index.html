@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>InventIQ — Apni Dukaan, Apna AI</title>
+    <title>InventIQ</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
@@ -39,36 +39,11 @@
         font-family: 'DM Sans', sans-serif;
         font-size: 15px;
         color: var(--text);
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>🚀 InventIQ Deployment Status</h1>
-        
-        <div class="status">
-            <h2>✅ Frontend Deployed Successfully!</h2>
-            <p><strong>URL:</strong> <a href="https://frontend-deploy-4395q58p0-yashvi-s-projects-a76b2222.vercel.app" target="_blank">https://frontend-deploy-4395q58p0-yashvi-s-projects-a76b2222.vercel.app</a></p>
-            
-            <h3>🔧 Next Steps:</h3>
-            <ol>
-                <li>Update Render CLIENT_URL to this Vercel URL</li>
-                <li>Test registration and login</li>
-                <li>Verify dashboard functionality</li>
-            </ol>
-            
-            <h3>📊 Backend Status:</h3>
-            <p><strong>API:</strong> <a href="https://inventiq-backend-4.onrender.com/api/health" target="_blank">https://inventiq-backend-4.onrender.com/api/health</a></p>
-        </div>
-        
-        <div class="status">
-            <h2>🔗 Quick Links:</h2>
-            <ul>
-                <li><a href="https://frontend-deploy-4395q58p0-yashvi-s-projects-a76b2222.vercel.app" target="_blank">🌐 Frontend App</a></li>
-                <li><a href="https://inventiq-backend-4.onrender.com/api/health" target="_blank">🔧 Backend Health</a></li>
-                <li><a href="https://render.com" target="_blank">📊 Render Dashboard</a></li>
-                <li><a href="https://vercel.com" target="_blank">⚡ Vercel Dashboard</a></li>
-            </ul>
-        </div>
-    </div>
-</body>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
